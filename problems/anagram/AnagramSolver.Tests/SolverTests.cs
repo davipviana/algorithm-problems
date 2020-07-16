@@ -9,17 +9,26 @@ namespace AnagramSolver.Tests
         [Fact]
         public void IsAnagram_ValidAnagram_ReturnTrue()
         {
-            var firstWord = "the morse code";
-            var secondWord = "here comes dots";
+            var firstWord = "heart";
+            var secondWord = "earth";
 
             Assert.True(Solver.IsAnagram(firstWord.ToCharArray(), secondWord.ToCharArray()));
         }
 
         [Fact]
-        public void IsAnagram_InvalidAnagram_ReturnFalse()
+        public void IsAnagram_InvalidAnagramWordsWithDifferentSizes_ReturnFalse()
         {
-            var firstWord = "the morse codes";
-            var secondWord = "there comes dots";
+            var firstWord = "heart";
+            var secondWord = "earthth";
+
+            Assert.False(Solver.IsAnagram(firstWord.ToCharArray(), secondWord.ToCharArray()));
+        }
+
+        [Fact]
+        public void IsAnagram_InvalidAnagramWordsSameSizes_ReturnFalse()
+        {
+            var firstWord = "python";
+            var secondWord = "typton";
 
             Assert.False(Solver.IsAnagram(firstWord.ToCharArray(), secondWord.ToCharArray()));
         }
